@@ -28,4 +28,25 @@ public class Book {
     public void setAuthor(Author author) {this.author = author;}
 
     public void setTitle(String title) {this.title = title;}
+
+    @Override
+    public String toString() {
+        return "Название: " + title + "." + " " + "Автор: " + author.toString() + "." + " " + "Год публикации " +yearPublication;
+    }
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
+        }
+        Book c2 = (Book) other;
+        return title.equals(c2.title) && author.equals(c2.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(title, author);
+    }
 }
